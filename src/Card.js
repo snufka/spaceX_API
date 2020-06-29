@@ -8,7 +8,7 @@ export default function Card() {
       <p>Date: </p>
       <p>Details: </p>
       <p>Rocket info: </p>
-      <img src="./public/img/rocket.jpg"></img>
+      <img src="https://live.staticflickr.com/65535/49955609378_544c3a9e5f_b.jpg"></img>
     </div>
   );
 }
