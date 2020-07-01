@@ -1,5 +1,6 @@
 import React from "react";
 import Card from "./Card";
+import LaunchesList from "./LaunchesList";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
           <input type="search" class="col-sm-8"></input>
         </form>
       </div>
+      <LaunchesList />
       <Card />
     </div>
   );
