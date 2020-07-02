@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import axios from "axios";
+import LauncheRender from "./LauncheRender";
 
 const BASEURL = "https://api.spacexdata.com/v3/launches";
 
@@ -25,7 +26,7 @@ export default function LaunchesList() {
     <div>
       <div>
         <form onSubmit={handleSubmit}>
-          <Input
+          <input
             type="text"
             placeholder="Search"
             value={searchTerm}
@@ -34,13 +35,13 @@ export default function LaunchesList() {
         </form>
       </div>
 
-      <Ul className="list-group">
+      <ui className="list-group">
         {searchResults.length
           ? searchResults.map(({ volumeInfo }) => {
               return <LauncheRender volumeInfo={volumeInfo} />;
             })
           : "Loading....."}
-      </Ul>
+      </ui>
     </div>
   );
 }
