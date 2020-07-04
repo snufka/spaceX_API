@@ -20,7 +20,7 @@ export default function LaunchesList() {
     setSearchTerm(e.target.value);
   };
   useEffect(() => {
-    fetchData("women empowerment");
+    fetchData("launches");
   }, []);
   return (
     <div>
