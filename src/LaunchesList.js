@@ -2,12 +2,12 @@ import React, { useEffect } from "react";
 import axios from "axios";
 import LauncheRender from "./LauncheRender";
 
-const BASEURL = "https://api.spacexdata.com/v3/launches";
+const BASEURL = "https://api.spacexdata.com/v3/launches/";
 
 export default function LaunchesList() {
   const fetchData = async (str) => {
     const result = await axios.get(BASEURL + str + "?limit=20");
-    console.log(result);
+    console.log(result.data);
     setSearchResults(result.data.items || []);
   };
   const [searchTerm, setSearchTerm] = React.useState("");
@@ -20,7 +20,7 @@ export default function LaunchesList() {
     setSearchTerm(e.target.value);
   };
   useEffect(() => {
-    fetchData("launches");
+    fetchData("next");
   }, []);
   return (
     <div>
