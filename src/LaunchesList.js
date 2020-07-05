@@ -6,7 +6,7 @@ const BASEURL = "https://api.spacexdata.com/v3/launches/";
 
 export default function LaunchesList() {
   const fetchData = async (str) => {
-    const result = await axios.get(BASEURL + str + "?limit=20");
+    const result = await axios.get(BASEURL + str + "latest?limit=20");
     console.log(result.data);
     setSearchResults(result.data.items || []);
   };
@@ -20,7 +20,7 @@ export default function LaunchesList() {
     setSearchTerm(e.target.value);
   };
   useEffect(() => {
-    fetchData("next");
+    fetchData("");
   }, []);
   return (
     <div>
