@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function Search() {
+  //state inpute
+  const [query, setQuery] = useState("67");
+  //state api result
+
   const searchApi = async (e) => {
     e.preventDefault();
     console.log("submitting");
-
-    const query = "67";
 
     const url = "https://api.spacexdata.com/v3/launches/" + query;
     try {
@@ -27,6 +29,8 @@ export default function Search() {
           type="text"
           name="query"
           placeholder="flight number"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
         />
         <button className="button" type="submit">
           Search
