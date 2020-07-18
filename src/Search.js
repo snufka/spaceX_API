@@ -9,7 +9,7 @@ export default function Search() {
     e.preventDefault();
     console.log("submitting");
 
-    const url = "https://api.spacexdata.com/v3/launches/" + query;
+    const url = "https://api.spacexdata.com/v3/launches?limit=20?" + query;
     try {
       const res = await fetch(url);
       const data = await res.json();
