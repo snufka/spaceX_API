@@ -10,7 +10,8 @@ export default function Search() {
     e.preventDefault();
     console.log("submitting");
 
-    const url = "https://api.spacexdata.com/v3/launches/" + query;
+    const url =
+      "https://api.spacexdata.com/v3/launches?limit=20?" + query + "&latest";
     try {
       const res = await fetch(url);
       const data = await res.json();
@@ -41,7 +42,11 @@ export default function Search() {
       <div className="card-list">
         {launches.map((launch) => (
           <div>
-            <h1> {launch.flight_number} </h1>
+            <h1> Flight Number:{launch.flight_number} </h1>
+            <h1>Name: {launch.rocket.rocket_name} </h1>
+            <h3>Status: {launch.launch_success}</h3>
+            <p>Date: {launch.launch_date_utc}</p>
+            <p>Details:{launch.details}</p>
           </div>
         ))}
       </div>
