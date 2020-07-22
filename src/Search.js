@@ -39,26 +39,36 @@ export default function Search() {
           Search
         </button>
       </form>
-      <div className="text-center" style={{ width: 650 }}>
-        {launches.map((launch) => (
-          <div key={launch.flight_number}>
-            <h3 className="card-header">
-              Flight Number:{launch.flight_number}
-            </h3>
-            <h1 className="card-header">
-              Rocket Name: {launch.rocket.rocket_name}{" "}
-            </h1>
-            <img src={launch.links.mission_patch} className="card-img-top" />
-            <div className="card-body">
-              <h3>Status: {launch.launch_success}</h3>
-              <p>Date: {launch.launch_date_utc}</p>
-              <p>Details:{launch.details}</p>
-              <a href={launch.links.article_link} className="btn btn-primary">
-                Read More about the Lunch
-              </a>
-            </div>
+      <div className="row">
+        <div className="col-sm-6">
+          <div className="text-center">
+            {launches.map((launch) => (
+              <div key={launch.flight_number}>
+                <h3 className="card-header">
+                  Flight Number:{launch.flight_number}
+                </h3>
+                <h1 className="card-header">
+                  Rocket Name: {launch.rocket.rocket_name}{" "}
+                </h1>
+                <img
+                  src={launch.links.mission_patch}
+                  className="card-img-top"
+                />
+                <div className="card-body">
+                  <h3>Status: {launch.launch_success}</h3>
+                  <p>Date: {launch.launch_date_utc}</p>
+                  <p>Details:{launch.details}</p>
+                  <a
+                    href={launch.links.article_link}
+                    className="btn btn-primary"
+                  >
+                    Read More about the Lunch
+                  </a>
+                </div>
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
     </>
   );
