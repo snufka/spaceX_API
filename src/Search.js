@@ -39,14 +39,24 @@ export default function Search() {
           Search
         </button>
       </form>
-      <div className="card-list">
+      <div className="text-center" style={{ width: 650 }}>
         {launches.map((launch) => (
-          <div>
-            <h1> Flight Number:{launch.flight_number} </h1>
-            <h1>Name: {launch.rocket.rocket_name} </h1>
-            <h3>Status: {launch.launch_success}</h3>
-            <p>Date: {launch.launch_date_utc}</p>
-            <p>Details:{launch.details}</p>
+          <div key={launch.flight_number}>
+            <h3 className="card-header">
+              Flight Number:{launch.flight_number}
+            </h3>
+            <h1 className="card-header">
+              Rocket Name: {launch.rocket.rocket_name}{" "}
+            </h1>
+            <img src={launch.links.mission_patch} className="card-img-top" />
+            <div className="card-body">
+              <h3>Status: {launch.launch_success}</h3>
+              <p>Date: {launch.launch_date_utc}</p>
+              <p>Details:{launch.details}</p>
+              <a href={launch.links.article_link} className="btn btn-primary">
+                Read More about the Lunch
+              </a>
+            </div>
           </div>
         ))}
       </div>
