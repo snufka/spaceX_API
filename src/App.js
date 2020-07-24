@@ -5,8 +5,8 @@ import Search from "./Search";
 
 function App() {
   return (
-    <div>
-      <h1>Space X Launches</h1>
+    <div className="col-sm-6">
+      <h1 className="text-info">Space X Launches</h1>
       <Search />
     </div>
   );

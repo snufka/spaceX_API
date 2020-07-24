@@ -23,9 +23,9 @@ export default function Search() {
   };
   return (
     <>
-      <form onSubmit={searchApi} className="col-sm-6">
-        <label className="label" htmlFor="query">
-          Api Search
+      <form onSubmit={searchApi} className="form-inline">
+        <label className="sr-only" htmlFor="query">
+          Search
         </label>
         <input
           className="form-control"
@@ -35,7 +35,8 @@ export default function Search() {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
-        <button className="btn btn-primary" type="submit">
+
+        <button className="btn btn-info" type="submit">
           Search
         </button>
       </form>
@@ -44,7 +45,7 @@ export default function Search() {
         <div className="text-center">
           {launches.map((launch) => (
             <div key={launch.flight_number}>
-              <h3 className="card-header">
+              <h3 className="card-title">
                 Flight Number:{launch.flight_number}
               </h3>
               <h1 className="card-header">
@@ -58,7 +59,7 @@ export default function Search() {
               <div className="card-body">
                 <h3>Status: {launch.launch_success}</h3>
                 <p>Date: {launch.launch_date_utc}</p>
-                <p>Details:{launch.details}</p>
+                <p className="card-text">Details: {launch.details}</p>
                 <a href={launch.links.article_link} className="btn btn-primary">
                   Read More about the Lunch
                 </a>
