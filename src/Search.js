@@ -23,51 +23,48 @@ export default function Search() {
   };
   return (
     <>
-      <form onSubmit={searchApi}>
+      <form onSubmit={searchApi} className="col-sm-6">
         <label className="label" htmlFor="query">
           Api Search
         </label>
         <input
-          className="input"
+          className="form-control"
           type="text"
           name="query"
           placeholder="Flight Number"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
-        <button className="button" type="submit">
+        <button className="btn btn-primary" type="submit">
           Search
         </button>
       </form>
-      <div className="row">
-        <div className="col-sm-6">
-          <div className="text-center">
-            {launches.map((launch) => (
-              <div key={launch.flight_number}>
-                <h3 className="card-header">
-                  Flight Number:{launch.flight_number}
-                </h3>
-                <h1 className="card-header">
-                  Rocket Name: {launch.rocket.rocket_name}{" "}
-                </h1>
-                <img
-                  src={launch.links.mission_patch}
-                  className="card-img-top"
-                />
-                <div className="card-body">
-                  <h3>Status: {launch.launch_success}</h3>
-                  <p>Date: {launch.launch_date_utc}</p>
-                  <p>Details:{launch.details}</p>
-                  <a
-                    href={launch.links.article_link}
-                    className="btn btn-primary"
-                  >
-                    Read More about the Lunch
-                  </a>
-                </div>
+
+      <div className="col-sm-6">
+        <div className="text-center">
+          {launches.map((launch) => (
+            <div key={launch.flight_number}>
+              <h3 className="card-header">
+                Flight Number:{launch.flight_number}
+              </h3>
+              <h1 className="card-header">
+                Rocket Name: {launch.rocket.rocket_name}
+              </h1>
+              <img
+                src={launch.links.mission_patch_small}
+                className="card-img-top"
+                alt={launch.rocket.rocket_name}
+              />
+              <div className="card-body">
+                <h3>Status: {launch.launch_success}</h3>
+                <p>Date: {launch.launch_date_utc}</p>
+                <p>Details:{launch.details}</p>
+                <a href={launch.links.article_link} className="btn btn-primary">
+                  Read More about the Lunch
+                </a>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </>
