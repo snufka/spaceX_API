@@ -13,7 +13,7 @@ function App() {
           alt="parallax"
         ></img>
       </div>
-      <div className="col-sm-6 text-center">
+      <div className="col-sm-10 text-center">
         <h1 className="text-info">Space X Launches</h1>
         <Search />
       </div>

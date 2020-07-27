@@ -41,7 +41,7 @@ export default function Search() {
         </button>
       </form>
 
-      <div className="col-sm-6">
+      <div className="col-sm-10">
         <div className="text-center">
           {launches.map((launch) => (
             <div key={launch.flight_number}>
